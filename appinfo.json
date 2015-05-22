@@ -1,0 +1,39 @@
+{
+    "appKeys": {},
+    "capabilities": [
+        ""
+    ],
+    "companyName": "taylorjon@gmail.com",
+    "longName": "FractionFace",
+    "projectType": "native",
+    "resources": {
+        "media": [
+            {
+                "file": "fonts/Square.ttf",
+                "name": "FONT_SQUARE_16",
+                "type": "font"
+            },
+            {
+                "file": "fonts/Square.ttf",
+                "name": "FONT_SQUARE_60",
+                "type": "font"
+            },
+            {
+                "file": "fonts/Square.ttf",
+                "name": "FONT_SQUARE_32",
+                "type": "font"
+            }
+        ]
+    },
+    "sdkVersion": "3",
+    "shortName": "FractionFace",
+    "targetPlatforms": [
+        "aplite",
+        "basalt"
+    ],
+    "uuid": "21304b27-fa01-43a2-85c9-94057f05db15",
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": true
+    }
+}

@@ -210,7 +210,7 @@ static void text_layer_setup(Window *window, TextLayer *text_layer){
 
 static void hour_text_layer_create(Window *window){
   // Create time TextLayer
-  s_hour_layer = text_layer_create(GRect(0,45,72,60));
+  s_hour_layer = text_layer_create(GRect(5,45,72,60));
   text_layer_setup(window, s_hour_layer);
   
   // Create GFont
@@ -221,7 +221,7 @@ static void hour_text_layer_create(Window *window){
 
 static void num_text_layer_create(Window *window){
   // Create time TextLayer
-  s_num_layer = text_layer_create(GRect(73,40,72,35));
+  s_num_layer = text_layer_create(GRect(78,40,72,35));
   text_layer_setup(window, s_num_layer);
   
   // Create GFont
@@ -232,7 +232,7 @@ static void num_text_layer_create(Window *window){
 
 static void den_text_layer_create(Window *window){
   // Create time TextLayer
-  s_den_layer = text_layer_create(GRect(73,85,72,35));
+  s_den_layer = text_layer_create(GRect(78,85,72,35));
   text_layer_setup(window, s_den_layer);
   
   // Create GFont
@@ -243,7 +243,7 @@ static void den_text_layer_create(Window *window){
 
 static void bar_text_layer_create(Window *window){
   // Create time TextLayer
-  s_bar_layer = text_layer_create(GRect(90,80,38,4));
+  s_bar_layer = text_layer_create(GRect(95,80,38,4));
   text_layer_setup(window, s_bar_layer);
   text_layer_set_background_color(s_bar_layer, GColorWhite);
 }

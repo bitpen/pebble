@@ -110,12 +110,12 @@ static void format_aproximate_time(struct tm *tick_time, char hourBuf[], char nu
   index = 0;
   if(hour >= 20){
     approxHour[index++] = 50;
-    approxHour[index++] = 32;
+    //approxHour[index++] = 32;
     hour -= 20;
   }
   else if(hour >= 10){
     approxHour[index++] = 49;
-    approxHour[index++] = 32;
+    //approxHour[index++] = 32;
     hour -= 10;
   }
   

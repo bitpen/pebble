@@ -26,6 +26,21 @@ static GFont s_hour_font;
 static GFont s_status_font;
 
 
+static void perform_bluetooth_reminder(struct tm *tick_time){
+    int min = tick_time->tm_min;
+    int hour = tick_time->tm_hour;
+    
+    if((hour == 7 && min == 0) || (hour == 22 && min == 0){
+        // Vibe pattern: ON for 200ms, OFF for 100ms, ON for 400ms:
+        static const uint32_t segments[] = { 400, 200, 600,200,400,200,600 };
+        VibePattern pat = {
+          .durations = segments,
+          .num_segments = ARRAY_LENGTH(segments),
+        };
+        vibes_enqueue_custom_pattern(pat);
+    }
+}
+
 static void format_aproximate_time(struct tm *tick_time, char hourBuf[], char numBuf[], char denBuf[], char dayBuf[], char dateBuf[]){ 
   int min = tick_time->tm_min;
   int hour = tick_time->tm_hour;
@@ -33,8 +48,6 @@ static void format_aproximate_time(struct tm *tick_time, char hourBuf[], char nu
   char approxHour[4];
   char approxNum[4];
   char approxDen[4];
-  char day[10];
-  char date[6];
   
   //determine numerator by approximating around mutiples of 5
   int num = min / 5;
@@ -127,6 +140,9 @@ static void format_aproximate_time(struct tm *tick_time, char hourBuf[], char nu
   snprintf(denBuf, sizeof (approxDen), "%s", approxDen);
   strftime(dateBuf, sizeof("00.00"), "%m.%d", tick_time);
   strftime(dayBuf, 10, "%a", tick_time);
+    
+  
+    
   return;
 }
   
@@ -152,6 +168,8 @@ static void update_time(){
   text_layer_set_text(s_den_layer, denBuffer);
   text_layer_set_text(s_day_layer, dayBuffer);
   text_layer_set_text(s_date_layer, dateBuffer);
+    
+  perform_bluetooth_reminder(tick_time);  
 }
 
 static void battery_handler(BatteryChargeState state){

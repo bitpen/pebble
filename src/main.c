@@ -30,7 +30,7 @@ static void perform_bluetooth_reminder(struct tm *tick_time){
     int min = tick_time->tm_min;
     int hour = tick_time->tm_hour;
     
-    if((hour == 7 && min == 0) || (hour == 22 && min == 0){
+    if((hour == 7 && min == 0) || (hour == 22 && min == 0)){
         // Vibe pattern: ON for 200ms, OFF for 100ms, ON for 400ms:
         static const uint32_t segments[] = { 400, 200, 600,200,400,200,600 };
         VibePattern pat = {
